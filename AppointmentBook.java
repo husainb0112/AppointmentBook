@@ -8,6 +8,11 @@ public class AppointmentBook {
     private boolean isMinuteFree(int period, int minute) {
         return schedule[period - 1][minute];
     }
+    public void printPeriod(int period) {
+        for(int i = 0; i < schedule[period - 1].length; i++) {
+            System.out.println(i + " " + schedule[period - 1][i]);
+        }
+    }
 
     /**
      * Marks the block of minutes that starts at startMinute in period and
@@ -16,7 +21,10 @@ public class AppointmentBook {
      * 1 <= duration <= 60
      */
     private void reserveBlock(int period, int startMinute, int duration) {
-        /* implementation not shown */ }
+        for(int i = startMinute; i < startMinute + duration; i++) {
+            schedule[period][i] = true;
+        }
+    }
 
     /**
      * Searches for the first block of duration free minutes during period, as
@@ -27,7 +35,20 @@ public class AppointmentBook {
      * Preconditions: 1 <= period <= 8; 1 <= duration <= 60
      */
     public int findFreeBlock(int period, int duration) {
-        /* to be implemented in part (a) */ }
+        int block = 0;
+        for(int i = 0; i < 60; i++) {
+            if(isMinuteFree(period, i)) {
+                block++;
+                if(block == duration) {
+                    return i - duration;
+                }
+            } else {
+                block = 0;
+            }
+            }
+        }
+        return 0;
+    }
 
     /**
      * Searches periods from startPeriod to endPeriod, inclusive, for a block
@@ -38,6 +59,7 @@ public class AppointmentBook {
      * Preconditions: 1 <= startPeriod <= endPeriod <= 8; 1 <= duration <= 60
      */
     public boolean makeAppointment(int startPeriod, int endPeriod, int duration){
+        return false;
      /* to be implemented in part (b) */ }
 
     // There may be instance variables, constructors, and methods that are not shown.
