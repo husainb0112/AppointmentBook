@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args){
+        
+        /*
         boolean[][] schedule = new boolean[8][60];
         AppointmentBook a = new AppointmentBook(schedule);
         System.out.println(a);
@@ -14,5 +16,13 @@ public class Main {
             schedule[1][i]= true;
         }
         a.printPeriod(2);
+        System.out.println(a.findFreeBlock(2, 15));
+        */
+
+        boolean[][] newSchedule = new boolean[8][60];
+        AppointmentBook b = new AppointmentBook(newSchedule);
+
+
+        System.out.print(b.makeAppointment(2, 4, 22));
     }
 }
