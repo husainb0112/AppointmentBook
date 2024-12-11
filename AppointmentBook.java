@@ -37,16 +37,21 @@ public class AppointmentBook {
 
     public boolean makeAppointment(int startPeriod, int endPeriod, int duration){
         boolean yes = false; 
-        for(int i = 0; i < endPeriod; i ++) {
-            int available = findFreeBlock(startPeriod, duration); 
-            if (available != - 1) {
-                reserveBlock(startPeriod, available, duration);
+        for(int i = startPeriod; i < endPeriod; i++) {
+            int available = findFreeBlock(i, duration); 
+            if (available > -1) {
+                reserveBlock(i, available, duration);
                 return true;
-            } else {
-                startPeriod += i; 
-            }
+            } 
         }
         return false;
+    }
+
+    public void setAvailability(boolean[][] schedule, int period, int startMinute, int endMinute) {
+        for(int i = startMinute; i < endMinute; i++) {
+            schedule[period - 1][i] = true;
+        }
+
     }
 
     // There may be instance variables, constructors, and methods that are not shown.
