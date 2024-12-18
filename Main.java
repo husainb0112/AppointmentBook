@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args){
 
-        /*boolean[][] schedule = new boolean[8][60];
+        boolean[][] schedule = new boolean[8][60];
         AppointmentBook a = new AppointmentBook(schedule);
         System.out.println(a);
         a.makeAvailable(2, 10, 14);
@@ -10,7 +10,7 @@ public class Main {
         a.printPeriod(2);
         System.out.println(a.findFreeBlock(2, 15));
         System.out.println(a.findFreeBlock(2, 9));
-        System.out.println(a.findFreeBlock(2, 20));*/
+        System.out.println(a.findFreeBlock(2, 20));
 
         boolean[][] newSchedule = new boolean[8][60];
         AppointmentBook b = new AppointmentBook(newSchedule);
